@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - /home/jonas/docker-volumes/postgres:/app/postgres/data
+    environment:
+      POSTGRES_USER: mindsdb
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: mindsdb
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8081
+
+  mindsdb:
+    image: mindsdb/mindsdb
+    ports:
+      - 47334:47334
+      - 47335:47335
+    volumes:
+      - ./config/config.json:/app/mindsdb/config/config.json
+    depends_on:
+      - db
+    command: bash -c "python3 -m mindsdb --config=/app/mindsdb/config/config.json --api=http"
+

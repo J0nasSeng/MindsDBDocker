@@ -1,0 +1,29 @@
+{
+    "config_version":"1.4",
+    "storage_dir": "/root/mdb_storage",
+    "log": { 
+        "level": {
+            "console": "ERROR",
+        "file": "WARNING",
+        "db": "WARNING"
+             } 
+           },
+    "debug": false,
+    "integrations": {},
+    "api":
+     {
+      "http": {
+          "host": "0.0.0.0",
+          "port": "47334"
+              },
+      "postgres": {
+          "host": "db",
+          "password": "example",
+          "port": "47335",
+          "user": "mindsdb",
+          "database": "mindsdb",
+          "ssl": true
+        }
+     }
+   }
+   
