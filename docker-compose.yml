@@ -6,7 +6,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - /home/jonas/docker-volumes/postgres:/app/postgres/data
+      - [user-specific-path]/docker-volumes/postgres:/app/postgres/data
     environment:
       POSTGRES_USER: mindsdb
       POSTGRES_PASSWORD: example
