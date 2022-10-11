@@ -24,7 +24,7 @@ services:
       - 47334:47334
       - 47335:47335
     volumes:
-      - ./config/config.json:/app/mindsdb/config/config.json
+      - ../config/config.json:/app/mindsdb/config/config.json
     depends_on:
       - db
     command: bash -c "python3 -m mindsdb --config=/app/mindsdb/config/config.json --api=http"
